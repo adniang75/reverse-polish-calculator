@@ -1,28 +1,24 @@
 package com.alassaneniang.calculator;
 
 import java.math.BigDecimal;
-import java.util.Stack;
 
 public class Calculator {
 
-    private final Stack<BigDecimal> values = new Stack<>();
+    private final OperandStack stack = new OperandStack();
 
     public BigDecimal getAccumulator () {
-        return this.values.isEmpty() ? BigDecimal.ZERO : this.values.peek();
+        return this.stack.peek();
     }
 
     public void setAccumulator ( BigDecimal value ) {
-        if ( !this.values.isEmpty() ) {
-            this.values.pop();
-        }
-        this.values.push( value );
+        this.stack.replaceTop( value );
     }
 
     public void enter () {
-        this.values.push( getAccumulator() );
+        this.stack.push( getAccumulator() );
     }
 
     public void drop () {
-        this.values.pop();
+        this.stack.pop();
     }
 }
