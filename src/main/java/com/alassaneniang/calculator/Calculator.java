@@ -21,4 +21,15 @@ public class Calculator {
     public void drop () {
         this.stack.pop();
     }
+
+    public void execute ( String operation ) {
+        Operation execution;
+        if ( "+".equals( operation ) ) {
+            execution = new AddOperation();
+            execution.apply( this.stack );
+        } else if ( "-".equals( operation ) ) {
+            execution = new SubtractOperation();
+            execution.apply( this.stack );
+        }
+    }
 }

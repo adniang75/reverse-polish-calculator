@@ -1,11 +1,11 @@
 package com.alassaneniang.calculator;
 
 import java.math.BigDecimal;
-import java.util.Stack;
+import java.util.LinkedList;
 
 public class OperandStack {
 
-    private final Stack<BigDecimal> stack = new Stack<>();
+    private final LinkedList<BigDecimal> stack = new LinkedList<>();
 
     public BigDecimal peek () {
         return stack.isEmpty() ? BigDecimal.ZERO : stack.peek();
